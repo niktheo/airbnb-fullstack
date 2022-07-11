@@ -6,7 +6,27 @@ const router = express.Router()
 // Create here a controller that accepts GET requests and renders the "search" page
 
 router.get('/', (req, res) => {
-  res.send('Hello form auth')
+  res.send('Hello from auth')
+})
+
+router.get('/login', (req, res) => {
+  res.send('Hello from login')
+})
+
+router.get('/singup', (req, res) => {
+  res.send('Hello from signup')
+})
+
+router.post('/login', async (req, res) => {
+  res.send('Hello from login')
+})
+
+router.post('/singup', async (req, res) => {
+  res.send('Hello from signup')
+})
+
+router.get('/logout', (req, res) => {
+  res.send('Hello from logout')
 })
 
 // Export
