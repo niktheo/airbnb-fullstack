@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/create', (req, res) => {
-  res.send('Hello from create')
+  res.render('houses/create')
 })
 
 router.get('/:id', (req, res) => {
@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  res.send('Hello from id edit')
+  res.render('houses/edit')
 })
 
 router.post('/', async (req, res) => {})
