@@ -10,11 +10,12 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-  res.send('Hello from login')
+  //res.send('Hello from login')
+  res.render('login')
 })
 
 router.get('/singup', (req, res) => {
-  res.send('Hello from signup')
+  res.render('signup')
 })
 
 router.post('/login', async (req, res) => {
