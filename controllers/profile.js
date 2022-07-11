@@ -9,5 +9,7 @@ router.get('/', (req, res) => {
   res.send('Hello from profile')
 })
 
+router.patch('/', (req, res) => {})
+
 // Export
 module.exports = router

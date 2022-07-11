@@ -9,5 +9,7 @@ router.get('/', (req, res) => {
   res.send('Hello from reviews')
 })
 
+router.post('/', (req, res) => {})
+
 // Export
 module.exports = router

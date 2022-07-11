@@ -9,5 +9,23 @@ router.get('/', (req, res) => {
   res.send('Hello from houses')
 })
 
+router.get('/create', (req, res) => {
+  res.send('Hello from create')
+})
+
+router.get('/:id', (req, res) => {
+  res.send('Hello from id')
+})
+
+router.get('/:id/edit', (req, res) => {
+  res.send('Hello from id edit')
+})
+
+router.post('/', async (req, res) => {})
+
+router.patch('/:id', async (req, res) => {})
+
+router.delete('/:id', async (req, res) => {})
+
 // Export
 module.exports = router
