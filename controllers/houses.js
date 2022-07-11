@@ -6,7 +6,8 @@ const router = express.Router()
 // Create here a controller that accepts GET requests and renders the "search" page
 
 router.get('/', (req, res) => {
-  res.send('Hello from houses')
+  res.render('houses/list')
+  // res.send('Hello from houses')
 })
 
 router.get('/create', (req, res) => {
@@ -14,7 +15,7 @@ router.get('/create', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  res.send('Hello from id')
+  res.render('houses/one')
 })
 
 router.get('/:id/edit', (req, res) => {
