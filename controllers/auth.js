@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const Users = require('../models/users.js')
+const bcrypt = require('bcryptjs')
 // Views
 // Create here a controller that accepts GET requests and renders the "search" page
 
@@ -31,6 +32,12 @@ router.post('/singup', async (req, res, next) => {
     if (foundUser) {
       throw new Error('User with this email already exists')
     }
+
+    //user.password = await bcrypt.hash(user.password)
+    let salt = bcrypt.genSaltSync(10)
+    req.body.password = bcrypt.hashSync(req.body.password, salt)
+    console.log(req.body.password)
+
     let user = await Users.create(req.body)
 
     req.login(user, err => {
