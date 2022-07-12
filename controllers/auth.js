@@ -29,6 +29,7 @@ router.post('/singup', async (req, res, next) => {
     if (err) {
       throw err
     }
+    res.redirect('/houses')
   })
 })
 
