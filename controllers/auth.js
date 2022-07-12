@@ -25,6 +25,11 @@ router.post('/login', async (req, res) => {
 router.post('/singup', async (req, res, next) => {
   console.log(req.body)
   let user = await Users.create(req.body)
+  req.login(user, err => {
+    if (err) {
+      throw err
+    }
+  })
 })
 
 router.get('/logout', (req, res) => {
