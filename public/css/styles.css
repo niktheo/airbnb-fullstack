@@ -6,7 +6,8 @@
 /* } */
 
 .bg {
-  background-image: url('../images/thailand.jpg');
+  height: 100vh;
+  background-image: url('/images/thailand.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
