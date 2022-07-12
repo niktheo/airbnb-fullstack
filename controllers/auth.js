@@ -31,8 +31,17 @@ router.post('/singup', async (req, res, next) => {
     if (foundUser) {
       throw new Error('User with this email already exists')
     }
-    res.redirect('/houses')
-  })
+    let user = await Users.create(req.body)
+
+    req.login(user, err => {
+      if (err) {
+        throw err
+      }
+      res.redirect('/houses')
+    })
+  } catch (err) {
+    next(err)
+  }
 })
 
 router.get('/logout', (req, res) => {
