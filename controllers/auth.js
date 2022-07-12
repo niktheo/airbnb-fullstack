@@ -1,7 +1,7 @@
 // Packages
 const express = require('express')
 const router = express.Router()
-
+const Users = require('../models/users.js')
 // Views
 // Create here a controller that accepts GET requests and renders the "search" page
 
@@ -22,8 +22,9 @@ router.post('/login', async (req, res) => {
   res.send('Hello from login')
 })
 
-router.post('/singup', async (req, res) => {
-  res.send('Hello from signup')
+router.post('/singup', async (req, res, next) => {
+  console.log(req.body)
+  let user = await Users.create(req.body)
 })
 
 router.get('/logout', (req, res) => {
