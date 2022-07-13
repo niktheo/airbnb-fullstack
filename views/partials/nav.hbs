@@ -4,8 +4,9 @@
 			<div class="col">
 			<a href="http://localhost:3002/"><img class="logo" src="../images/logo-airbnb.png" alt="AirbnbLogo" /></a>
 			</div>
+			{{#if user}}
 			<div class="col text-end">
-				<button type="button" class="btn btn-outline-secondary">
+				<a href="http://localhost:3002/profile" type="button" class="btn btn-outline-secondary">
 					<img
 								src="{{user.avatar}}"
 								class="rounded-circle img-fluid avatar p-0"
@@ -13,10 +14,19 @@
 												/>
 				<span>{{user.name}}</span>
 
-				</button>
+			</a>
 
 				<a href="http://localhost:3002/auth/logout" class="btn btn-outline-secondary">
 					Logout
 				</a>
 			</div>
+			{{else}}
+			<div class="col text-end">
+			<a href="http://localhost:3002/auth/login" class="btn btn-outline-secondary">
+				Login
+			</a>
+			{{/if}}
+		</div>
+	</div>
+</div>
 		</nav>
