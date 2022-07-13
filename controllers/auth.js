@@ -19,8 +19,40 @@ router.get('/singup', (req, res) => {
   res.render('signup')
 })
 
-router.post('/login', async (req, res) => {
-  res.send('Hello from login')
+router.post('/login', async (req, res, next) => {
+  try {
+    let foundUser = await Users.findOne({
+      email: req.body.email
+      // password: req.body.password
+    })
+    // console.log(req.body)
+    console.log('foundUser', foundUser)
+    // if (
+    //   (await Users.find({
+    //     email: req.body.email
+    //   })) &&
+    //
+    // ) {
+    //   let foundUser = true
+    // }
+    if (!foundUser) {
+      console.log('hello')
+      throw new Error('Email and Password do not match')
+    } else {
+      if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+        req.login(foundUser, err => {
+          if (err) {
+            throw err
+          }
+          res.redirect('/houses')
+        })
+      } else {
+        throw new Error('Email and Password do not match')
+      }
+    }
+  } catch (err) {
+    next(err)
+  }
 })
 
 router.post('/singup', async (req, res, next) => {
