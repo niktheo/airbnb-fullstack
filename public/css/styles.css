@@ -12,6 +12,10 @@
   background-size: cover;
 }
 
+.avatar {
+  width: 20px;
+}
+
 .fa-thumbs-up {
   color: green;
 }

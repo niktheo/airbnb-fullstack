@@ -2,16 +2,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-			<a href="http://localhost:3002/"><img class="logo" src="../images/logo-airbnb.png" alt="AirbnbLogo" /></a>	
+			<a href="http://localhost:3002/"><img class="logo" src="../images/logo-airbnb.png" alt="AirbnbLogo" /></a>
 			</div>
 			<div class="col text-end">
 				<button type="button" class="btn btn-outline-secondary">
+					<img
+								src="{{user.avatar}}"
+								class="rounded-circle img-fluid avatar p-0"
+								alt="avatar login"
+												/>
+				<span>{{user.name}}</span>
 
-					{{user.name}}
-					{{user.avatar}}
 				</button>
-				<button type="button" class="btn btn-outline-secondary">
+
+				<a href="http://localhost:3002/auth/logout" class="btn btn-outline-secondary">
 					Logout
-				</button>
+				</a>
 			</div>
 		</nav>
