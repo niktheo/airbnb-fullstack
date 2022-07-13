@@ -26,15 +26,8 @@ router.post('/login', async (req, res, next) => {
       // password: req.body.password
     })
     // console.log(req.body)
-    console.log('foundUser', foundUser)
-    // if (
-    //   (await Users.find({
-    //     email: req.body.email
-    //   })) &&
-    //
-    // ) {
-    //   let foundUser = true
-    // }
+    //  console.log('foundUser', foundUser)
+
     if (!foundUser) {
       console.log('hello')
       throw new Error('Email and Password do not match')
