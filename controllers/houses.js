@@ -1,7 +1,7 @@
 // Packages
 const express = require('express')
 const router = express.Router()
-
+const Houses = require('../models/houses.js')
 // Views
 // Create here a controller that accepts GET requests and renders the "search" page
 
@@ -29,8 +29,14 @@ router.get('/:id/edit', (req, res) => {
   res.render('houses/edit', { user: req.user })
 })
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
   if (req.isAuthenticated()) {
+    console.log(req.body)
+    req.body.host = req.user._id
+    let house = await Houses.create(req.body)
+    console.log(house._id)
+
+    res.redirect(`/houses/${house._id}`)
   } else {
     res.redirect('/auth/login')
   }
