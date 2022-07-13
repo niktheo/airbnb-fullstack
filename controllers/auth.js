@@ -84,7 +84,15 @@ router.post('/singup', async (req, res, next) => {
 })
 
 router.get('/logout', (req, res) => {
-  res.send('Hello from logout')
+  console.log('123')
+  req.logout()
+  req.session.destroy(err => {
+    if (err) {
+      next(err)
+    }
+    res.clearCookie('connect.sid')
+    res.redirect('/auth/login')
+  })
 })
 
 // Export
