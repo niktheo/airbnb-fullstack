@@ -77,7 +77,6 @@ router.post('/singup', async (req, res, next) => {
 })
 
 router.get('/logout', (req, res) => {
-  console.log('123')
   req.logout()
   req.session.destroy(err => {
     if (err) {
