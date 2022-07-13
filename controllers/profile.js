@@ -6,11 +6,19 @@ const router = express.Router()
 // Create here a controller that accepts GET requests and renders the "search" page
 
 router.get('/', (req, res) => {
-  //res.send('Hello from profile')
-  res.render('profile')
+  if (req.isAuthenticated()) {
+    res.render('profile', { user: req.user })
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 
-router.patch('/', (req, res) => {})
+router.patch('/', (req, res) => {
+  if (req.isAuthenticated()) {
+  } else {
+    res.redirect('/auth/login')
+  }
+})
 
 // Export
 module.exports = router

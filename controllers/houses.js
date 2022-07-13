@@ -7,26 +7,48 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   res.render('houses/list', { user: req.user })
-  // res.send('Hello from houses')
 })
 
 router.get('/create', (req, res) => {
-  res.render('houses/create', { user: req.user })
+  if (req.isAuthenticated()) {
+    res.render('houses/create', { user: req.user })
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 
 router.get('/:id', (req, res) => {
-  res.render('houses/one', { user: req.user })
+  if (req.isAuthenticated()) {
+    res.render('houses/one', { user: req.user })
+  } else {
+    res.redirect('/auth/login')
+  }
 })
 
 router.get('/:id/edit', (req, res) => {
   res.render('houses/edit', { user: req.user })
 })
 
-router.post('/', async (req, res) => {})
+router.post('/', async (req, res) => {
+  if (req.isAuthenticated()) {
+  } else {
+    res.redirect('/auth/login')
+  }
+})
 
-router.patch('/:id', async (req, res) => {})
+router.patch('/:id', async (req, res) => {
+  if (req.isAuthenticated()) {
+  } else {
+    res.redirect('/auth/login')
+  }
+})
 
-router.delete('/:id', async (req, res) => {})
+router.delete('/:id', async (req, res) => {
+  if (req.isAuthenticated()) {
+  } else {
+    res.redirect('/auth/login')
+  }
+})
 
 // Export
 module.exports = router

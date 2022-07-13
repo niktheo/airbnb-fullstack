@@ -9,7 +9,12 @@ router.get('/', (req, res) => {
   res.send('Hello from reviews')
 })
 
-router.post('/', (req, res) => {})
+router.post('/', (req, res) => {
+  if (req.isAuthenticated()) {
+  } else {
+    res.redirect('/auth/login')
+  }
+})
 
 // Export
 module.exports = router
