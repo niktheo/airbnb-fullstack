@@ -5,10 +5,15 @@ const Houses = require('../models/houses.js')
 // Views
 // Create here a controller that accepts GET requests and renders the "search" page
 
-router.get('/', async (req, res) => {
-  let houses = await Houses.find({})
-  console.log(houses[0].title)
-  res.render('houses/list', { user: req.user, houses })
+router.get('/', async (req, res, next) => {
+  try {
+    //let houses = await Houses.find({})
+    // console.log('req.query', req.query)
+    // let houses = await Houses.find(req.query)
+    res.render('houses/list', { user: req.user, houses })
+  } catch (err) {
+    next(err)
+  }
 })
 
 router.get('/create', (req, res) => {
@@ -20,15 +25,6 @@ router.get('/create', (req, res) => {
 })
 
 router.get('/:id', async (req, res, next) => {
-  if (req.isAuthenticated()) {
-    try {
-      let house = await Houses.findById(req.params.id).populate('host')
-      console.log(house)
-      res.render('houses/one', { user: req.user, house })
-    } catch (err) {}
-  } else {
-    res.redirect('/auth/login')
-  }
   try {
     let house = await Houses.findById(req.params.id).populate('host')
     console.log(house)
