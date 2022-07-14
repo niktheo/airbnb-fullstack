@@ -29,6 +29,11 @@ router.get('/:id', async (req, res, next) => {
   } else {
     res.redirect('/auth/login')
   }
+  try {
+    let house = await Houses.findById(req.params.id).populate('host')
+    console.log(house)
+    res.render('houses/one', { user: req.user, house })
+  } catch (err) {}
 })
 
 router.get('/:id/edit', (req, res) => {
