@@ -5,8 +5,10 @@ const Houses = require('../models/houses.js')
 // Views
 // Create here a controller that accepts GET requests and renders the "search" page
 
-router.get('/', (req, res) => {
-  res.render('houses/list', { user: req.user })
+router.get('/', async (req, res) => {
+  let houses = await Houses.find({})
+  console.log(houses[0].title)
+  res.render('houses/list', { user: req.user, houses })
 })
 
 router.get('/create', (req, res) => {
