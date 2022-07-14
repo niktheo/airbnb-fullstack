@@ -91,9 +91,9 @@
 	 <div class="container">
 		 <div class="row p-3">
 			 <div class="col-sm-8">
-				 <h1>Luxury Villa in Chaweng</h1>
+				 <h1>{{house.title}}</h1>
 				 <span>
-					 <i class="green-icon fa-solid fa-location-dot"></i> Koh Samui • 4
+					 <i class="green-icon fa-solid fa-location-dot"></i> {{house.location}} • {{house.rooms}}
 					 Rooms
 				 </span>
 				 <div class="row mt-4">
@@ -110,14 +110,7 @@
 				 </div>
 				 <p>
 					 <span>
-						 Stylish, tropical, luxurious airy and absolute stunning view over
-						 the bay of Chaweng Beach, this villa combines form and function,
-						 enjoying magnificent views of Samui small islands and the sea
-						 beyond. With 520sqm of indoor/outdoor living space with 7 ensuite
-						 bedrooms large living area, infinity pool garden, air conditioned
-						 gym, professional pool table, bbq and Sala, this villa is perfect
-						 for up to 14 adults With 260sqm (2798sqfeet) of living space and
-						 260sqm of outdoor space.
+						 {{house.description}}
 					 </span>
 				 </p>
 				 <h2>2 Reviews</h2>
@@ -211,7 +204,7 @@
 			 <div class="col-sm-4">
 				 <div class="card shadow">
 					 <div class="card-body">
-						 <h5 class="card-title">$350$/night</h5>
+						 <h5 class="card-title">{{house.price}}$/night</h5>
 						 <h6 class="my-2">
 							 <i class="green-icon fa-solid fa-thumbs-up"></i> 2 Reviews
 						 </h6>
