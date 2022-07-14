@@ -23,7 +23,7 @@
 									 alt="housepictures"
 								 />
 							 </div>
-							 <div class="col mb-3">
+							 <!-- <div class="col mb-3">
 								 <img
 									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
 									 class="img-fluid"
@@ -78,7 +78,7 @@
 									 class="img-fluid"
 									 alt="housepictures"
 								 />
-							 </div>
+							 </div> -->
 						 </div>
 					 </div>
 				 </div>
@@ -99,13 +99,13 @@
 				 <div class="row mt-4">
 					 <div class="col-sm-1">
 						 <img
-							 src="https://randomuser.me/api/portraits/men/11.jpg"
+							 src="{{house.host.avatar}}"
 							 class="img-fluid rounded-circle"
 							 alt="housepictures"
 						 />
 					 </div>
 					 <div class="col-sm-11 p-2">
-						 <h5 class="text-secondary">Nikos Theodoridis</h5>
+						 <h5 class="text-secondary">{{house.host.name}}</h5>
 					 </div>
 				 </div>
 				 <p>
