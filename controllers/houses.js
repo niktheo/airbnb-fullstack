@@ -17,9 +17,13 @@ router.get('/create', (req, res) => {
   }
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res, next) => {
   if (req.isAuthenticated()) {
-    res.render('houses/one', { user: req.user })
+    try {
+      let house = await Houses.findById(req.params.id).populate('host')
+      console.log(house)
+      res.render('houses/one', { user: req.user, house })
+    } catch (err) {}
   } else {
     res.redirect('/auth/login')
   }
@@ -31,10 +35,11 @@ router.get('/:id/edit', (req, res) => {
 
 router.post('/', async (req, res, next) => {
   if (req.isAuthenticated()) {
-    console.log(req.body)
+    //console.log(req.body)
     req.body.host = req.user._id
     let house = await Houses.create(req.body)
-    console.log(house._id)
+    //console.log(house._id)
+    //console.log(house)
 
     res.redirect(`/houses/${house._id}`)
   } else {
