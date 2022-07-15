@@ -8,77 +8,26 @@
 			 <div class="row">
 				 <div class="col">
 					 <img
-						 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
-						 class="img-fluid"
+
+						 src="{{house.photos.[0]}}"
+						 class="img-fluid bigpic "
 						 alt="house1"
 					 />
 				 </div>
 				 <div class="col mt-3 ">
 					 <div class="container ">
 						 <div class="row row-cols-3">
-							 <div class="col">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
-							 <!-- <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
+							  {{#each house.photos as |photo|}}
 							 <div class="col mb-3">
 								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png"
-									 class="img-fluid"
+								   onclick="renderPic({{photo}})"
+									 src="{{photo}}"
+									 class="galpic img-fluid"
 									 alt="housepictures"
 								 />
-							 </div>
-							 <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
-							 <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
-							 <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
-							 <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
-							 <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_08.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div>
-							 <div class="col mb-3">
-								 <img
-									 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png"
-									 class="img-fluid"
-									 alt="housepictures"
-								 />
-							 </div> -->
+							 	</div>
+								{{/each}}
+
 						 </div>
 					 </div>
 				 </div>
