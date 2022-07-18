@@ -7,9 +7,44 @@ const Houses = require('../models/houses.js')
 
 router.get('/', async (req, res, next) => {
   try {
-    //let houses = await Houses.find({})
+    obj = {}
+    if (req.query.location && req.query != undefined) {
+      obj.location = req.query.location
+    }
+    if (req.query.rooms && req.query != undefined) {
+      obj.rooms = req.query.rooms
+    }
+    if (req.query.price && req.query != undefined) {
+      obj.price = {
+        $lt: req.query.price
+      }
+    }
+    if (req.query.title && req.query.title != undefined) {
+      obj.title = { $regex: req.query.title, $options: 'i' }
+    }
+    let houses = []
+    if (req.query.housesort != 0) {
+      houses = await Houses.find(obj).sort('-price')
+    } else {
+      houses = await Houses.find(obj).sort('price')
+    }
+
+    console.log(obj)
     // console.log('req.query', req.query)
-    // let houses = await Houses.find(req.query)
+    // if (req.query.length == undefined) {
+    //   console.log('hey')
+    //   let houses = await Houses.find({})
+    //   res.render('houses/list', { user: req.user, houses })
+    // }
+    // houses = await Houses.find({
+    //   location: req.query.location
+    // })
+    // if (req.query.location == '') {
+    //   let houses = await Houses.find({})
+    //   res.render('houses/list', { user: req.user, houses })
+    // }
+
+    //console.log(houses)
     res.render('houses/list', { user: req.user, houses })
   } catch (err) {
     next(err)
