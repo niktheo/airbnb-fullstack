@@ -12,10 +12,10 @@
 								 <i class="fa-solid fa-location-dot"></i
 							 ></label>
 							 <select name="location" class="form-select">
-								 <option selected>Anywhere</option>
-								 <option value="1">Koh Phangan</option>
-								 <option value="2">Koh Samui</option>
-								 <option value="3">Bali</option>
+								 <option value=''selected>Anywhere</option>
+								 <option value="Koh Phangan">Koh Phangan</option>
+								 <option value="Koh Samui">Koh Samui</option>
+								 <option value="Bali">Bali</option>
 							 </select>
 						 </div>
 					 </div>
@@ -24,8 +24,8 @@
 							 <label class="input-group-text"
 								 ><i class="fa-solid fa-house-chimney"></i
 							 ></label>
-							 <select class="form-select">
-								 <option name="rooms" selected>Any Room</option>
+							 <select name="rooms" class="form-select">
+								 <option value="" selected>Any Room</option>
 								 <option value="1">One</option>
 								 <option value="2">Two</option>
 								 <option value="3">Three</option>
@@ -54,7 +54,7 @@
 							 <label class="input-group-text" for="inputGroupSelect01"
 								 ><i class="fa-solid fa-sort"></i>
 							 </label>
-							 <select class="form-select ps-0 pe-0">
+							 <select name="housesort" class="form-select ps-0 pe-0">
 								 <option selected value="1">Price(low to high)</option>
 								 <option value="2">Price(high to low)</option>
 							 </select>
@@ -98,7 +98,7 @@
 						 <div class="card-body">
 							 <div class="houseinfo">
 								 <span>
-									 <i class="fa-solid fa-location-dot"></i> Koh Samui
+									 <i class="fa-solid fa-location-dot"></i>{{house.location}}
 								 </span>
 								 <label> • {{house.rooms}} Rooms</label>
 							 </div>
