@@ -18,12 +18,25 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.patch('/', (req, res) => {
-  if (req.isAuthenticated()) {
-  } else {
-    res.redirect('/auth/login')
+router.patch('/', async (req, res, next) => {
+  try {
+    if (req.isAuthenticated()) {
+      let newuser = await Users.findByIdAndUpdate(req.user._id, req.body, {
+        new: true
+      })
+      req.login(newuser, err => {
+        if (err) {
+          throw err
+        } else {
+          res.redirect('/profile')
+        }
+      })
+    } else {
+      res.redirect('/auth/login')
+    }
+  } catch (err) {
+    next(err)
   }
 })
-
 // Export
 module.exports = router
