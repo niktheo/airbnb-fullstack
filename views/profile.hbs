@@ -20,32 +20,35 @@
 	<div class="row">
 		<div class="col-3 me-5">
 			<h3 class="border-bottom pb-2">Profile</h3>
-			<form>
+			<form action="/profile?_method=PATCH" method="POST">
 				<label for="exampleInputPassword1" class="form-label mb-0"
 					>Name</label
 				>
-				<input type="text" class="form-control mb-3" />
+				<input name="name" type="text" class="form-control mb-3"  value="{{user.name}}" />
 
 				<label for="exampleInputEmail1" class="form-label mb-0"
 					>Email</label
 				>
 				<input
+					name="email"
 					type="email"
 					class="form-control mb-2 "
 					id="exampleInputEmail1"
 					aria-describedby="emailHelp"
+					value="{{user.email}}"
 				/>
 				<label>Profile Picture</label>
 				<div class="row mt-2">
 					<div class="col-sm-3">
 						<img
-							src="https://randomuser.me/api/portraits/men/11.jpg"
+
+							src="{{user.avatar}}"
 							class="img-fluid rounded-circle mb-2"
 							alt="housepictures"
 						/>
 					</div>
 				</div>
-				<input type="text" class="form-control mb-2 " />
+				<input name="avatar" type="text" class="form-control mb-2 " value="{{user.avatar}}" />
 
 				<button type="submit" class="btn btn-primary btn-success my-2">
 					Save Changes
