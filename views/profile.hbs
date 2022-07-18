@@ -63,17 +63,25 @@
 
 
 			<!--  -->
-			<div class=" card mb-0">
+			{{#if housess}}
+			{{#each houses as |house|}}
+			<div class=" card mb-0 mt-4">
 				<div class="card-body p-0">
+
 					<div class="row row-cols-1 p-0 ">
 						<div class="col-4">
 							<img
+
 								class="img-fluid"
+								src="{{house.photos.[0]}}"
 								alt="housepictures"
 							/>
 						</div>
 						<div class="col-8 ">
+							<h4 class="mt-2">{{houses.title}}</h4>
+							<p class="my-1">{{house.rooms}} rooms ${{house.price}}/night</p>
 							<p>
+								{{house.description}}
 							</p>
 							<a href="/houses/{{house._id}}/edit"
 								type="submit"
@@ -92,6 +100,7 @@
 
 				</div>
 			</div>
+			{{/each}}
 			{{else}}
 			<!-- No listed houses -->
 
@@ -100,6 +109,11 @@
 					<h6>You don't have any houses listed</h6>
 				</div>
 			</div>
+
+			{{/if}}
+
+
+
 		</div>
 	</div>
 </div>
